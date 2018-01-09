@@ -58,6 +58,7 @@ AWS = Network('AWS', bandwidth=2 * _Gbps)
 ETHERNET = Network('Ethernet', bandwidth=10 * _Gbps)
 ETHERNET_20 = Network('Ethernet', bandwidth=20 * _Gbps)
 INFINIBAND = Network('Infiniband', bandwidth=70 * _Gbps)
+NVLINK = Network('NVlink', bandwidth=300 * _Gbps)
 PCIe_2 = Network('PCIe 2.0', bandwidth=8 * _GBps)  # One weird trick: 6 GB/s
 PCIe_3 = Network('PCIe 3.0', bandwidth=16 * _GBps)
 
@@ -75,19 +76,67 @@ NETWORKS = {'aws': AWS,
 
 # Predefined devices.
 GPU_TITAN_X = Device(
-    'Titan X', clock=1000, peek_gflop=6144, mem_bandwidth=336.5, is_gpu=True)
+    'Titan X',
+    clock=1000,
+    peek_gflop=6144,
+    mem_bandwidth=336.5,
+    is_gpu=True)
 
 GPU_K20 = Device(
-    'K20', clock=1000, peek_gflop=3520, mem_bandwidth=208, is_gpu=True)
+    'K20',
+    clock=1000,
+    peek_gflop=3520,
+    mem_bandwidth=208,
+    is_gpu=True)
 
 GPU_K20X = Device(
-    'K20X', clock=1000, peek_gflop=3935, mem_bandwidth=250, is_gpu=True)
+    'K20X',
+    clock=1000,
+    peek_gflop=3935,
+    mem_bandwidth=250,
+    is_gpu=True)
 
 GPU_K40 = Device(
-    'K40', clock=745, peek_gflop=4290, mem_bandwidth=288, is_gpu=True)
+    'K40',
+    clock=745,
+    peek_gflop=4290,
+    mem_bandwidth=288,
+    is_gpu=True)
 
 GPU_K80 = Device(
-    'K80', clock=560, peek_gflop=5600, mem_bandwidth=480, is_gpu=True)
+    'K80',
+    clock=560,
+    peek_gflop=5600,
+    mem_bandwidth=480,
+    is_gpu=True)
+
+GPU_P100 = Device(
+    'P100',
+    clock=1126,
+    peek_gflop=8000,
+    mem_bandwidth=732,
+    is_gpu=True)
+
+GPU_P100_NV = Device(
+    'P100 NVlink',
+    clock=1328,
+    peek_gflop=9500,
+    mem_bandwidth=732,
+    is_gpu=True)
+
+GPU_V100 = Device(
+    'V100',
+    clock=1370,
+    peek_gflop=14000,
+    mem_bandwidth=900,
+    is_gpu=True)
+
+GPU_V100_NV = Device(
+    'V100 NVlink',
+    clock=1455,
+    peek_gflop=14900,
+    mem_bandwidth=900,
+    is_gpu=True)
 
 GPU_GEFORCE_780_TI = Device(
     'GeForce 780 Ti',
@@ -103,8 +152,25 @@ GPU_GEFORCE_750M = Device(
     mem_bandwidth=80,
     is_gpu=True)
 
+GPU_GEFORCE_1080 = Device(
+    'GeForce GTX 1080',
+    clock=1607,
+    peek_gflop=8200,
+    mem_bandwidth=320,
+    is_gpu=True)
+
+GPU_GEFORCE_1080_TI = Device(
+    'GeForce GTX 1080 Ti',
+    clock=1607,
+    peek_gflop=10600,
+    mem_bandwidth=484,
+    is_gpu=True)
+
 CPU_I7_5930K = Device(
-    'CPU i7 5930K', clock=6 * 35000, peek_gflop=289, mem_bandwidth=68)
+    'CPU i7 5930K',
+    clock=6 * 35000,
+    peek_gflop=289,
+    mem_bandwidth=68)
 
 DEVICES = {
     'TITAN_X': GPU_TITAN_X,
@@ -112,7 +178,13 @@ DEVICES = {
     'K20X': GPU_K20X,
     'K40': GPU_K40,
     'K80': GPU_K80,
+    'P100': GPU_P100,
+    'P100': GPU_P100_NV,
+    'V100': GPU_V100,
+    'P100': GPU_V100_NV,
     'GEFORCE_780_TI': GPU_GEFORCE_780_TI,
     'GEFORCE_750_M': GPU_GEFORCE_750M,
+    'GEFORCE_1080': GPU_GEFORCE_1080,
+    'GEFORCE_1080_TI': GPU_GEFORCE_1080_TI,
     'CPU_I7': CPU_I7_5930K
 }
