@@ -71,6 +71,7 @@ NETWORKS = {'aws': AWS,
             'ethernet': ETHERNET,
             'ethernet20': ETHERNET_20,
             'infiniband': INFINIBAND,
+            'NVlink': NVLINK,
             'pcie2': PCIe_2,
             'pcie3': PCIe_3}
 
