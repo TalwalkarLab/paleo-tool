@@ -111,32 +111,18 @@ GPU_K80 = Device(
     mem_bandwidth=480,
     is_gpu=True)
 
-GPU_P100 = Device(
-    'P100',
-    clock=1126,
-    peek_gflop=8000,
-    mem_bandwidth=732,
-    is_gpu=True)
-
-GPU_P100_NV = Device(
-    'P100 NVlink',
-    clock=1328,
-    peek_gflop=9500,
-    mem_bandwidth=732,
-    is_gpu=True)
-
-GPU_V100 = Device(
-    'V100',
-    clock=1370,
-    peek_gflop=14000,
-    mem_bandwidth=900,
-    is_gpu=True)
-
 GPU_V100_NV = Device(
     'V100 NVlink',
     clock=1455,
     peek_gflop=14900,
     mem_bandwidth=900,
+    is_gpu=True)
+
+GPU_GEFORCE_1080_TI = Device(
+    'GeForce 1080 Ti',
+    clock=1480,
+    peek_gflop=10609,
+    mem_bandwidth=484,
     is_gpu=True)
 
 GPU_GEFORCE_780_TI = Device(
@@ -153,25 +139,23 @@ GPU_GEFORCE_750M = Device(
     mem_bandwidth=80,
     is_gpu=True)
 
-GPU_GEFORCE_1080 = Device(
-    'GeForce GTX 1080',
-    clock=1607,
-    peek_gflop=8200,
-    mem_bandwidth=320,
-    is_gpu=True)
-
-GPU_GEFORCE_1080_TI = Device(
-    'GeForce GTX 1080 Ti',
-    clock=1607,
-    peek_gflop=10600,
-    mem_bandwidth=484,
-    is_gpu=True)
-
 CPU_I7_5930K = Device(
     'CPU i7 5930K',
     clock=6 * 35000,
     peek_gflop=289,
     mem_bandwidth=68)
+
+CPU_I7_7820HQ = Device(
+    'CPU i7 7820HQ',
+    clock=4 * 29000,
+    peek_gflop=38.53,
+    mem_bandwidth=37.5)
+
+CPU_XEON_E5_2698v4 = Device(
+    'CPU Xeon E5 2698',
+    clock=20 * 22000,
+    peek_gflop=576,
+    mem_bandwidth=76.8)
 
 DEVICES = {
     'TITAN_X': GPU_TITAN_X,
@@ -179,13 +163,11 @@ DEVICES = {
     'K20X': GPU_K20X,
     'K40': GPU_K40,
     'K80': GPU_K80,
-    'P100': GPU_P100,
-    'P100_NV': GPU_P100_NV,
-    'V100': GPU_V100,
-    'V100_NV': GPU_V100_NV,
+    'V100': GPU_V100_NV,
+    'GEFORCE_1080_TI': GPU_GEFORCE_1080_TI,
     'GEFORCE_780_TI': GPU_GEFORCE_780_TI,
     'GEFORCE_750_M': GPU_GEFORCE_750M,
-    'GEFORCE_1080': GPU_GEFORCE_1080,
-    'GEFORCE_1080_TI': GPU_GEFORCE_1080_TI,
-    'CPU_I7': CPU_I7_5930K
+    'CPU_I7': CPU_I7_5930K,
+    'CPU_I7_HQ': CPU_I7_7820HQ,
+    'CPU_XEON_E5': CPU_XEON_E5_2698v4
 }
