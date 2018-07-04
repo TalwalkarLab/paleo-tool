@@ -1,0 +1,19 @@
+{
+    "name": "fc7",
+    "layers": {
+        "data": {
+            "parents": [],
+            "type": "Input",
+            "tensor": [1, 1, 1, 4096]
+        },
+        "Conv2d_2a_3x3": {
+            "parents": ["data"],
+            "type": "Convolution",
+            "filter": [1, 1, 4096, 4096],
+            "padding": "VALID",
+            "strides": [1, 1, 1, 1],
+            "activation_fn": "relu",
+            "normalizer_fn": "batch_norm"
+        }
+    }
+}

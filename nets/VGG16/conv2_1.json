@@ -1,16 +1,16 @@
 {
-    "name": "conv_1x1x4096x4096",
+    "name": "conv2_1",
     "layers": {
         "data": {
             "parents": [],
             "type": "Input",
-            "tensor": [1, 1, 1, 4096]
+            "tensor": [1, 112, 112, 64]
         },
         "Conv2d_2a_3x3": {
             "parents": ["data"],
             "type": "Convolution",
-            "filter": [1, 1, 4096, 4096],
-            "padding": "VALID",
+            "filter": [3, 3, 64, 128],
+            "padding": "SAME",
             "strides": [1, 1, 1, 1],
             "activation_fn": "relu",
             "normalizer_fn": "batch_norm"

@@ -1,0 +1,19 @@
+{
+    "name": "conv2_2",
+    "layers": {
+        "data": {
+            "parents": [],
+            "type": "Input",
+            "tensor": [1, 112, 112, 128]
+        },
+        "Conv2d_2a_3x3": {
+            "parents": ["data"],
+            "type": "Convolution",
+            "filter": [3, 3, 128, 128],
+            "padding": "SAME",
+            "strides": [1, 1, 1, 1],
+            "activation_fn": "relu",
+            "normalizer_fn": "batch_norm"
+        }
+    }
+}
