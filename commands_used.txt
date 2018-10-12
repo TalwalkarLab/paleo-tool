@@ -1,0 +1,11 @@
+[CUDA_VISIBLE_DEVICES=0] nvidia-docker run --rm -it -v $(pwd)/data:/results paleo-full
+
+    scripts/exp_layers.sh nets/vgg16.json /results/exp_layers_Camarilla_1080ti.txt
+    scripts/exp_layers.sh nets/vgg16.json /results/exp_layers_Hades_K40.txt
+    scripts/exp_layers.sh nets/vgg16.json /results/exp_layers_Azure_M60.txt
+
+    ./paleo.sh simulate nets/vgg16.json --batch_size=32 --network_name=ethernet20 --device_name=GEFORCE_1080_TI --num_workers=1,2,4,8,16,32,64,128 --ppp_comp=0.49 --ppp_comm=0.72 --scaling=weak >> /results/simulate_1080ti.txt
+    ./paleo.sh simulate nets/vgg16.json --batch_size=32 --network_name=ethernet20 --device_name=K40 --num_workers=1,2,4,8,16,32,64,128 --ppp_comp=0.49 --ppp_comm=0.72 --s
+caling=weak >> /results/simulate_K40.txt
+    ./paleo.sh simulate nets/vgg16.json --batch_size=32 --network_name=ethernet20 --device_name=M60 --num_workers=1,2,4,8,16,32,64,128 --ppp_comp=0.49 --ppp_comm=0.72 --s
+caling=weak >> /results/simulate_M60.txt
