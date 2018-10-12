@@ -42,9 +42,17 @@ RUN apt-get install -y --no-install-recommends \
     zlib1g-dev \
     && curl -LO "https://github.com/bazelbuild/bazel/releases/download/0.3.0/bazel_0.3.0-linux-x86_64.deb" \
     && dpkg -i bazel_*.deb
-# tensorflow-9.0-gup build and install 
+# DL tf
 RUN wget https://github.com/tensorflow/tensorflow/archive/v0.9.0.zip
 RUN unzip v0.9.0.zip
+# Fix DL error
+RUN wget http://www.ijg.org/files/jpegsrc.v9a.tar.gz
+RUN tar -xf jpegsrc.v9a.tar.gz
+#RUN diff -u tensorflow-0.9.0/tensorflow/workspace.bzl tensorflow-0.9.0/tensorflow/workspace.bzl.new > tf-wk.patch
+ADD tf-wk.patch .
+RUN patch tensorflow-0.9.0/tensorflow/workspace.bzl -i tf-wk.patch -o tensorflow-0.9.0/tensorflow/workspace.bzl.patched
+RUN mv tensorflow-0.9.0/tensorflow/workspace.bzl.patched tensorflow-0.9.0/tensorflow/workspace.bzl 
+# tensorflow-9.0-gup build and install 
 RUN cd tensorflow-0.9.0 \
     && ./configure \
     && bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package \

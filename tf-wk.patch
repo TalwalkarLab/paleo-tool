@@ -1,0 +1,15 @@
+--- tensorflow-0.9.0/tensorflow/workspace.bzl   2016-06-21 21:36:21.000000000 +0000
++++ tensorflow-0.9.0/tensorflow/workspace.bzl.new       2018-10-12 14:45:46.208811884 +0000
+@@ -42,10 +42,9 @@
+     init_submodules = True,
+   )
+
+-  native.new_http_archive(
++  native.new_local_repository(
+     name = "jpeg_archive",
+-    url = "http://www.ijg.org/files/jpegsrc.v9a.tar.gz",
+-    sha256 = "3a753ea48d917945dd54a2d97de388aa06ca2eb1066cbfdc6652036349fe05a7",
++    path = "/paleo",
+     build_file = path_prefix + "jpeg.BUILD",
+   )
+
