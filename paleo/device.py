@@ -139,6 +139,13 @@ GPU_GEFORCE_750M = Device(
     mem_bandwidth=80,
     is_gpu=True)
 
+GPU_M60 = Device(
+    'M60',
+    clock=577,
+    peek_gflop=4825,
+    mem_bandwidth=160,
+    is_gpu=True)
+
 CPU_I7_5930K = Device(
     'CPU i7 5930K',
     clock=6 * 35000,

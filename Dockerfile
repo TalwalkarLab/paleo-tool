@@ -67,3 +67,4 @@ RUN python -m pip install six
 
 
 ENTRYPOINT /bin/bash
+CMD []
